@@ -37,7 +37,7 @@ class Export2Valine_Action extends Typecho_Widget implements Widget_Interface_Do
     $results = array();
     foreach($tpComments as $comment) {
       $slug = $contentHash[$comment["cid"]];
-      $time = date("c", $comment["created"]);
+      $time = date("Y-m-d\TH:i:s.000\Z", $comment["created"]);
 
       $arr = array(
         "objectId" => md5($comment["coid"]),
