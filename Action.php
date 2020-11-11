@@ -43,7 +43,7 @@ class Export2Valine_Action extends Typecho_Widget implements Widget_Interface_Do
         "objectId" => md5($comment["coid"]),
         "QQAvatar" => "",
         "comment" => $comment["text"],
-        "insertedAct" => array(
+        "insertedAt" => array(
           "__type" => "Date",
           "iso" => $time
         ),
