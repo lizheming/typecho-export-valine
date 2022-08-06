@@ -66,10 +66,16 @@ class Export2Valine_Action extends Typecho_Widget implements Widget_Interface_Do
     }
     
     // 备份文件名
-    $fileName = 'valine.' . date('Y-m-d') . '.json';
+    $fileName = 'valine.' . date('Y-m-d') . '.jsonl';
     header('Content-Type: application/json');
     header('Content-Disposition: attachment; filename=' . $fileName);
-    echo json_encode( array("results" => $results) );
+    
+    echo '#filetype:JSON-streaming {"type":"Class","class":"Comment"}';
+    echo '\n';
+    foreach($results as $item) {
+      echo '\n';
+      echo json_encode($item);
+    }
   }
 
   private function getRootId($id) {
